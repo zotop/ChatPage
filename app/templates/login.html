@@ -1,19 +1,17 @@
-<div id="login" class="row">
-  <div class="large-6 large-offset-3">
-    <form ng-submit="login()">
-      <fieldset class="radius">
-        <div class="row">
-          <div class="large-12 columns">
-            <input type="text" name="username" style="text-align: center;" placeholder="username" ng-model="credentials.username" required/>
-          </div>
+<div id="login">
+  <div class="container">
+    <form ng-submit="login()" class="form-horizontal" role="form" name="loginForm">
+      <div class="form-group">  
+        <div class="col-sm-offset-5 col-sm-2">
+          <input class="form-control" type="text" name="username" style="text-align: center;margin-bottom: 0px;" placeholder="username" ng-model="credentials.username" required/>    
+        </div> 
+      </div> 
+      <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-2">
+          <button id="log-in" ng-disabled="loginForm.$invalid" type="submit" class="btn btn-primary btn-block">Enter</button>
         </div>
-
-        <div class="row">
-          <div class="large-12 columns">
-            <button id="log-in" type="submit" class="button large expand radius">Enter</button>
-          </div>
-        </div>
-      </fieldset>
+      </div>
+       
     </form>
   </div>
 </div>
