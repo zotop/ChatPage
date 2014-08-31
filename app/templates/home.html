@@ -1,21 +1,42 @@
 <div id="home" class="row">
   <div class="large-6 large-offset-3">
-    <h2>Welcome to the {{ title }} page!</h2>
 
-    <div class="alert-box">{{ message }}</div>
+    <div>
+      <b>Online Users</b>
+      <table>
+        <tr><td>Johny</td></tr>
+        <tr><td>Karl</td></tr>
+        <tr><td>Cristy</td></tr>
+      </table>
 
-    <ul class="small-block-grid-2">
-      <li>
-        <img class="th" src="img/demo1.jpg" shows-message-when-hovered message="Im the first house.">
-      </li>
-      <li>
-        <img class="th" src="img/demo2.jpg" shows-message-when-hovered message="Im the second house.">
-      </li>
-    </ul>
+    </div>
+
+    <div>
+      <table id="chatMessagesTable" style="">
+      <tr>
+        <td>10:53:08 am</td>
+        <td> - </td>
+        <td>Johny</td>
+        <td> - </td>
+        <td>Hi, just joined the chat</td>
+      </tr>
+      <tr>
+        <td>10:55:54 am</td>
+        <td> - </td>
+        <td>Karl</td>
+        <td> - </td>
+        <td>Hello, welcome!</td>
+      </tr>
+      </table>
+    <div>
+
+    <div>
+      <input type="text" id="messageInput"/>
+    </div>
 
     <div class="row">
       <div class="large-12 columns">
-        <button ng-click="logout()" class="button large expand radius">Log Out</button>
+        <button ng-click="logout()" class="button large expand radius">Exit</button>
       </div>
     </div>
   </div>
