@@ -18,5 +18,8 @@
   "scripts": {
     "start": "lineman run",
     "test": "lineman spec-ci"
+  },
+  "dependencies": {
+    "socket.io": "^1.0.6"
   }
 }
