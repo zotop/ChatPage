@@ -11,6 +11,8 @@
     "coffee-script": "~1.6.3",
     "mocha": "*",
     "chai": "*",
+    "express": "^4.8.7",
+    "socket.io": "^1.0.6",
     "lineman": ">= 0.28.0",
     "lineman-angular": ">= 0.2.0",
     "lineman-less": "0.0.1",
