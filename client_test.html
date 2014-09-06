@@ -1,0 +1,14 @@
+<script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+<script>
+  var socket = io('http://localhost:5001');
+ var chatUser2 = 'Sally';
+    socket.on('connect', function () { // TIP: you can avoid listening on `connect` and listen on events directly too!
+   	 socket.emit('user:connect', chatUser2);
+      
+    });
+
+    socket.on('user:connected', function (user){
+              console.log('Connection at: ' + new Date(), user);
+    });
+
+</script>
