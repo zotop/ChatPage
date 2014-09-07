@@ -1,7 +1,12 @@
-angular.module("app").controller('LoginController', function($scope, $location) {
-  $scope.username = "";
+angular.module("app").controller('LoginController', function($scope, $location, socket) {
 
   $scope.login = function() {
-  	$location.path('/home');  
+  	socket.on('user:connected', function (user) {
+  		if(user === $scope.username) {
+  			$location.path('/home'); 	
+  		}
+    });
+
+    socket.emit("user:connect", $scope.username);
   };
 });

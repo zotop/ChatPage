@@ -24,9 +24,10 @@
       
     <div class="col-md-2">
       <table class="table">
-        <tr><td>Johny</td></tr>
-        <tr><td>Karl</td></tr>
-        <tr><td>Cristy</td></tr>
+        <tr ng-repeat="user in onlineUsers">
+          <td>{{user}}</td>
+        </tr>
+        
       </table>
     </div>
 
