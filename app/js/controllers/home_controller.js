@@ -1,10 +1,10 @@
-angular.module("app").controller('HomeController', function($scope, $location, socket) {
+angular.module("app").controller('HomeController', function($scope, $location, socket, UserService) {
   $scope.title = "Home";
   $scope.message = "Mouse Over these images to see a directive at work";
-  $scope.onlineUsers = [];
+  $scope.onlineUsers = UserService.onlineUsers;
 
-  socket.on("user:connected", function(user){
-  	$scope.onlineUsers.push(user);
+  socket.on("user:connected", function(response){
+  	$scope.onlineUsers = response.onlineUsers
   });
 
 
