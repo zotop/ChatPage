@@ -3,30 +3,32 @@
   <div class="row">
     
     <div class="col-md-10">
+      <form ng-submit="addMessage()">
         <table id="chatMessagesTable" class="table">
         <tr>
               <th class="col-sm-1">Time</th>
               <th class="col-sm-2">User</th>
               <th class="col-sm-7">Message</th>
           </tr>
-        <tr>
-          <td>10:53:08</td>
-          <td>Johny</td>
-          <td>Hi, just joined the chat</td>
+        <tr ng-repeat="row in messageTable">
+          <td>{{row.time}}</td>
+          <td>{{row.user}}</td>
+          <td>{{row.message}}</td>
         </tr>
-        <tr>
-          <td>10:55:54</td>
-          <td>Karl</td>
-          <td>Hello, welcome!</td>
-        </tr>
-        </table>
-
-        <input type="text" id="messageInput"/>
         
+        </table>
+ 
+        <input type="text" id="messageInput" ng-model="inputMessage"/>
+
+      </form>
+
     </div> 
       
     <div class="col-md-2">
       <table class="table">
+        <tr>
+          <th>Users</th>
+        </tr>
         <tr ng-repeat="user in onlineUsers">
           <td>{{user}}</td>
         </tr>

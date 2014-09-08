@@ -5,6 +5,7 @@ angular.module("app").controller('LoginController', function($scope, $location, 
   		console.log("response", response);
   		if(response.newUser === $scope.username) {
   			UserService.onlineUsers = response.onlineUsers;
+        UserService.currentUser = response.newUser;
   			$location.path('/home'); 	
   		}
     });
