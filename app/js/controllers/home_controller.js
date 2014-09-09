@@ -3,16 +3,20 @@ angular.module("app").controller('HomeController', function($scope, $location, s
   $scope.message = "Mouse Over these images to see a directive at work";
   $scope.onlineUsers = UserService.onlineUsers;
 
-  $scope.messageTable = [{time: "10:54:01", user: "Homer", message:"Hello my friends"}, {time: "10:56:01", user: "Johny", message:"Cool"}];
+  $scope.messageTable = [];
 
   socket.on("user:connected", function(response){
   	$scope.onlineUsers = response.onlineUsers;
   });
 
+  socket.on("user:new_message", function(message){
+    var currentDate = new Date();
+    var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+    $scope.messageTable.push({time: currentTime, user: message.user , text: message.text});
+  });
+
   $scope.addMessage = function(){
-  	var currentDate = new Date();
-  	var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-  	$scope.messageTable.push({time: currentTime, user: UserService.currentUser , message: $scope.inputMessage});
+    socket.emit("user:message", {user: UserService.currentUser , text: $scope.inputMessage});
   	$scope.inputMessage = "";
   };
 

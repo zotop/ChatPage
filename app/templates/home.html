@@ -10,10 +10,10 @@
               <th class="col-sm-2">User</th>
               <th class="col-sm-7">Message</th>
           </tr>
-        <tr ng-repeat="row in messageTable">
-          <td>{{row.time}}</td>
-          <td>{{row.user}}</td>
-          <td>{{row.message}}</td>
+        <tr ng-repeat="message in messageTable">
+          <td>{{message.time}}</td>
+          <td>{{message.user}}</td>
+          <td>{{message.text}}</td>
         </tr>
         
         </table>

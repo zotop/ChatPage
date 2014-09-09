@@ -10,6 +10,11 @@ io.sockets.on('connection', function (socket) {
     io.sockets.emit('user:connected', {newUser: userName, onlineUsers: onlineUsers});
   });
 
+  socket.on('user:message',function(message){
+  	console.log("user:message: " + message.user + ":" + message.text);
+  	io.sockets.emit('user:new_message', message);
+  });
+
   socket.on('disconnect',function(){
     console.log("user disconnected");
   });
