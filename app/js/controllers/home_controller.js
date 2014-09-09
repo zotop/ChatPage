@@ -9,6 +9,10 @@ angular.module("app").controller('HomeController', function($scope, $location, s
   	$scope.onlineUsers = response.onlineUsers;
   });
 
+  socket.on("user:disconnected", function(remainingUsers){
+    $scope.onlineUsers = remainingUsers;
+  });
+
   socket.on("user:new_message", function(message){
     var currentDate = new Date();
     var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
@@ -21,6 +25,7 @@ angular.module("app").controller('HomeController', function($scope, $location, s
   };
 
   $scope.logout = function() {
+    socket.emit("user:disconnect", UserService.currentUser);
     $location.path('/login');
   };
 });
