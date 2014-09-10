@@ -1,5 +1,5 @@
 angular.module('app').factory('socket', function ($rootScope) {
-  var socket = io.connect('http://localhost:5001');
+  var socket;
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {  
@@ -18,6 +18,12 @@ angular.module('app').factory('socket', function ($rootScope) {
           }
         });
       });
+    },
+    disconnect: function() {
+      socket.disconnect();  
+    },
+    connect: function() {
+      socket = io.connect('http://localhost:5001', { 'force new connection': true }); 
     }
   };
 });

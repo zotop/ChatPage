@@ -5,6 +5,16 @@ angular.module("app").controller('HomeController', function($scope, $location, s
 
   $scope.messageTable = [];
 
+  $scope.$on("$destroy", function(){ //when leaving the current page
+    socket.disconnect();
+  });
+
+  $scope.$on("$viewContentLoaded", function(){ //when the page content is loaded
+    if(UserService.currentUser === "") {
+      $location.path('/login');  
+    }   
+  });
+
   socket.on("user:connected", function(response){
   	$scope.onlineUsers = response.onlineUsers;
   });
@@ -24,8 +34,7 @@ angular.module("app").controller('HomeController', function($scope, $location, s
   	$scope.inputMessage = "";
   };
 
-  $scope.logout = function() {
-    socket.emit("user:disconnect", UserService.currentUser);
+  $scope.logout = function() { 
     $location.path('/login');
   };
 });
