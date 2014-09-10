@@ -25,7 +25,10 @@ angular.module("app").controller('HomeController', function($scope, $location, s
 
   socket.on("user:new_message", function(message){
     var currentDate = new Date();
-    var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+    var hours = ('0' + currentDate.getHours()).slice(-2);
+    var minutes = ('0' + currentDate.getMinutes()).slice(-2);
+    var seconds = ('0' + currentDate.getSeconds()).slice(-2);
+    var currentTime =  hours + ":" + minutes + ":" +  seconds;
     $scope.messageTable.push({time: currentTime, user: message.user , text: message.text});
   });
 
@@ -37,4 +40,5 @@ angular.module("app").controller('HomeController', function($scope, $location, s
   $scope.logout = function() { 
     $location.path('/login');
   };
+
 });
