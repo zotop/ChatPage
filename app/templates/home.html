@@ -4,19 +4,22 @@
     
     <div class="col-md-10">
       <form ng-submit="addMessage()">
-        <table id="chatMessagesTable" class="table">
-        <tr>
-              <th class="col-sm-1">Time</th>
-              <th class="col-sm-2">User</th>
-              <th class="col-sm-7">Message</th>
+        <div style="overflow: auto; max-height: 450px;">
+          <table id="chatMessagesTable" class="table">
+          <tr>
+                <th class="col-sm-1">Time</th>
+                <th class="col-sm-2">User</th>
+                <th class="col-sm-7">Message</th>
           </tr>
-        <tr ng-repeat="message in messageTable">
-          <td>{{message.time}}</td>
-          <td>{{message.user}}</td>
-          <td>{{message.text}}</td>
-        </tr>
-        
-        </table>
+          <tr ng-repeat="message in messageTable">
+            <td>{{message.time}}</td>
+            <td>{{message.user}}</td>
+            <td>{{message.text}}</td>
+          </tr>
+          <tr id="bottomTable"><td colspan="3"/></tr>
+          </table>
+        </div>
+
  
         <input type="text" id="messageInput" ng-model="inputMessage"/>
 

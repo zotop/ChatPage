@@ -1,4 +1,4 @@
-angular.module("app").controller('HomeController', function($scope, $location, socket, UserService) {
+angular.module("app").controller('HomeController', function($scope, $location, $anchorScroll,  socket, UserService) {
   $scope.title = "Home";
   $scope.message = "Mouse Over these images to see a directive at work";
   $scope.onlineUsers = UserService.onlineUsers;
@@ -30,6 +30,10 @@ angular.module("app").controller('HomeController', function($scope, $location, s
     var seconds = ('0' + currentDate.getSeconds()).slice(-2);
     var currentTime =  hours + ":" + minutes + ":" +  seconds;
     $scope.messageTable.push({time: currentTime, user: message.user , text: message.text});
+    $location.hash('bottomTable');
+    $anchorScroll();
+
+
   });
 
   $scope.addMessage = function(){
