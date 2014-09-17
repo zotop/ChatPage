@@ -24,7 +24,7 @@ module.exports = function(lineman) {
     less: {
       compile: {
         options: {
-          paths: ["vendor/css/bootstrap.css"]
+          paths: ["vendor/css/bootstrap.css", "vendor/css/normalize.css", "vendor/css/**/*.css", "app/css/**/*.less"]
         }
       }
     }

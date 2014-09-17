@@ -23,7 +23,7 @@ angular.module('app').factory('socket', function ($rootScope) {
       socket.disconnect();  
     },
     connect: function() {
-      socket = io.connect('http://localhost:5001', { 'force new connection': true }); 
+      socket = io.connect('http://chatpage.herokuapp.com', {'force new connection': true }); 
     }
   };
 });

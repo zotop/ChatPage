@@ -1,5 +1,5 @@
 {
-  "framework" : "mocha+chai",
+  "framework" : "jasmine",
   "launch_in_dev" : ["Chrome"],
   "launch_in_ci" : ["PhantomJS"],
   "src_files" : [

@@ -4,8 +4,8 @@
     
     <div class="col-md-10">
       <form ng-submit="addMessage()">
-        <div style="overflow: auto; max-height: 450px;">
-          <table id="chatMessagesTable" class="table">
+        <div id="chatMessagesDiv" style="overflow: auto; max-height: 450px;">
+          <table id="messagesTable" class="table">
           <tr>
                 <th class="col-sm-1">Time</th>
                 <th class="col-sm-2">User</th>
@@ -19,8 +19,7 @@
           <tr id="bottomTable"><td colspan="3"/></tr>
           </table>
         </div>
-
- 
+  
         <input type="text" id="messageInput" ng-model="inputMessage"/>
 
       </form>

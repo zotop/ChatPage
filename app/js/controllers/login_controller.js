@@ -7,7 +7,7 @@ angular.module("app").controller('LoginController', function($scope, $location, 
     socket.on("connect", function() {
       
       socket.on('user:connected', function (response) {
-      
+        console.log("User connected", response);
         if(response.newUser === $scope.username) {
           UserService.onlineUsers = response.onlineUsers;
           UserService.currentUser = response.newUser;
@@ -17,6 +17,5 @@ angular.module("app").controller('LoginController', function($scope, $location, 
 
       socket.emit("user:connect", $scope.username);
     });
-  	
   };
 });

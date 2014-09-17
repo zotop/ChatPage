@@ -1,4 +1,11 @@
-var io = require('socket.io').listen(5001);
+var express = require('express'),
+    app = express(),
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server),
+    port = process.env.PORT || 5001;
+
+
+app.use(express.static(__dirname + '/generated'));
 
 var onlineUsers = [];
 var allClients = [];
@@ -27,3 +34,6 @@ io.sockets.on('connection', function (socket) {
   });
   
 });
+
+
+server.listen(port);

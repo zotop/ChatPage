@@ -1,29 +1,29 @@
 {
   "name": "lineman-angular-template",
   "title": "An HTML/JS/CSS app using Angular.JS",
+  "main": "js/app.js",
   "version": "0.0.1",
   "private": true,
   "author": {
     "name": "John Doe",
     "company": "ACME, Inc."
   },
-  "devDependencies": {
-    "coffee-script": "~1.6.3",
-    "mocha": "*",
-    "chai": "*",
-    "express": "^4.8.7",
-    "socket.io": "^1.0.6",
-    "lineman": ">= 0.28.0",
-    "lineman-angular": ">= 0.2.0",
+  "dependencies": {
+    "grunt-angular-templates": "0.3.8",
+    "grunt-ngmin": "~0.0.3",
+    "grunt": "~0.4.1",
+    "grunt-concat-sourcemap": "~0.3.0",
+    "coffee-script": "^1.6.3",
+    "jasmine-given": "^2.6.2",
+    "lineman": "^0.34.0",
+    "lineman-angular": "^0.3.0",
     "lineman-less": "0.0.1",
-    "protractor": "^0.23.1"
+    "protractor": "^1.2.0-beta1",
+    "express": "3.x",
+    "socket.io": "^1.0.6"
   },
   "scripts": {
     "start": "lineman run",
     "test": "lineman spec-ci"
-  },
-  "dependencies": {
-    "express": "^4.8.7",
-    "socket.io": "^1.0.6"
   }
 }
